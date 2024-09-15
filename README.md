@@ -37,7 +37,7 @@ This project demonstrates the effectiveness of the Deformable DETR model in the 
 
 - [x] Parse the SoccerNet dataset and extract images and annotations.
 - [x] Implement the `SoccerNetDataset` class to handle data loading and preprocessing.
-- [ ] Set up the Deformable DETR model from hugging face for object detection.
+- [x] Set up the Deformable DETR model from hugging face for object detection.
 - [ ] Fine-tune the Deformable DETR model using the SoccerNet dataset.
 - [ ] Implement evaluation metrics to assess model performance.
 - [ ] Visualize detection results on sample images.
