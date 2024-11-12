@@ -40,7 +40,8 @@ This project demonstrates the effectiveness of the Deformable DETR model in the 
 - [x] Set up the Deformable DETR model from hugging face for object detection.
 - [ ] Fine-tune the Deformable DETR model using the SoccerNet dataset.
     - [x] Solve the loss not decreasing issue 
-    - [ ] Solve the issue with metric calculation on val dataset
+    - [x] Solve the issue with metric calculation on val dataset
+    - [ ] Select every 10th frame since the frames are highly correlated
 - [ ] Visualize detection results on sample images.
 - [ ] Document the training and evaluation process.
 - [ ] Optimize the model for better performance.
