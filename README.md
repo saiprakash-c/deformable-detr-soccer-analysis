@@ -41,7 +41,8 @@ This project demonstrates the effectiveness of the Deformable DETR model in the 
 - [ ] Fine-tune the Deformable DETR model using the SoccerNet dataset.
     - [x] Solve the loss not decreasing issue 
     - [x] Solve the issue with metric calculation on val dataset
-    - [ ] Select every 10th frame since the frames are highly correlated
-- [ ] Visualize detection results on sample images.
+    - [x] Select every 10th frame since the frames are highly correlated
+ - [x] Visualize detection results on sample images.
 - [ ] Document the training and evaluation process.
-- [ ] Optimize the model for better performance.
+- [ ] Optimize the model for better performance. 
+
