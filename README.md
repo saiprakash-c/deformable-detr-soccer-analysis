@@ -1,48 +1,53 @@
-# About the Project
+# Deformable DETR Soccer Analysis
 
 ## Overview
 
-This project focuses on fine-tuning the Deformable DETR (Deformable Detection Transformer) model to detect players, referees, and the ball in soccer games using bounding boxes. The dataset used for this task is the SoccerNet dataset, which contains annotated images of soccer matches.
+This project implements and fine-tunes the Deformable DETR (DEtection TRansformer) model to detect and classify soccer game entities - players, referees, and the ball - using bounding boxes. By leveraging the SoccerNet dataset, this implementation demonstrates how advanced object detection transformers can be applied to sports analytics.
 
-## Objectives
+## Features
 
-- **Fine-tune Deformable DETR**: Adapt the Deformable DETR model to accurately detect and classify objects specific to soccer games.
-- **Detect Multiple Classes**: Identify and classify different entities such as players, referees, and the ball.
-- **Utilize SoccerNet Dataset**: Leverage the SoccerNet dataset for training and evaluation.
+- **Multi-class Detection**: Accurately identifies players, referees, and the ball with distinct bounding boxes
+- **Transformer-based Architecture**: Uses Deformable DETR, an improved version of DETR with deformable attention mechanisms
+- **PyTorch Implementation**: Built on PyTorch with HuggingFace transformers integration
+- **Coordinate Transformation**: Includes utility functions for converting between bbox formats (XYXY ↔ CCWH)
+- **Performance Metrics**: Calculates mAP (mean Average Precision) to evaluate detection quality
 
 ## Dataset
 
-The SoccerNet dataset is a comprehensive collection of annotated soccer match images. It includes bounding box annotations for various entities such as players, referees, and the ball. The dataset is structured to facilitate training and evaluation of object detection models.
+The SoccerNet dataset provides comprehensive annotated soccer match footage, including:
+- High-resolution broadcast video frames
+- Precise bounding box annotations for players, referees, and the ball
+- Diverse game scenarios across multiple camera angles
 
-## Methodology
+Our implementation samples frames at regular intervals (every 10th frame) to reduce training on highly correlated images.
 
-1. **Data Preprocessing**: Prepare the SoccerNet dataset by organizing images and annotations.
-2. **Model Fine-tuning**: Fine-tune the Deformable DETR model using the preprocessed dataset.
-3. **Evaluation**: Assess the performance of the fine-tuned model on a validation set.
+## Technical Implementation
 
-## Results
+1. **Data Pipeline**: Custom `SoccerNetDataset` class handles data loading and preprocessing
+2. **Model Architecture**: Deformable DETR with ResNet backbone
+3. **Training Process**: Implemented in PyTorch with customized loss functions
+4. **Visualization Tools**: Functions to render predictions and ground truth boxes
 
-The fine-tuned Deformable DETR model is expected to achieve high accuracy in detecting and classifying players, referees, and the ball in soccer match images. Detailed results and performance metrics will be provided upon completion of the training and evaluation phases.
+## Getting Started
 
-## Conclusion
-
-This project demonstrates the effectiveness of the Deformable DETR model in the context of sports analytics, specifically for detecting key entities in soccer matches. The fine-tuned model can be utilized for various applications such as game analysis, player tracking, and automated highlight generation.
+1. Install dependencies: `pip install lightning timm transformers torchmetrics`
+2. Run notebook: `jupyter notebook deformable_detr_soccer_analysis.ipynb`
 
 ## References
 
-- [Deformable DETR](https://arxiv.org/abs/2010.04159)
+- [Deformable DETR Paper](https://arxiv.org/abs/2010.04159)
 - [SoccerNet Dataset](https://www.soccer-net.org/)
 
-## TODO List
+## Development Roadmap
 
-- [x] Parse the SoccerNet dataset and extract images and annotations.
-- [x] Implement the `SoccerNetDataset` class to handle data loading and preprocessing.
-- [x] Set up the Deformable DETR model from hugging face for object detection.
-- [ ] Fine-tune the Deformable DETR model using the SoccerNet dataset.
-    - [x] Solve the loss not decreasing issue 
-    - [x] Solve the issue with metric calculation on val dataset
-    - [x] Select every 10th frame since the frames are highly correlated
- - [x] Visualize detection results on sample images.
-- [ ] Document the training and evaluation process.
-- [ ] Optimize the model for better performance. 
-
+- [x] Parse the SoccerNet dataset and extract images and annotations
+- [x] Implement the `SoccerNetDataset` class for data loading and preprocessing
+- [x] Configure Deformable DETR model from HuggingFace
+- [x] Solve training issues:
+  - [x] Fix loss not decreasing problem
+  - [x] Resolve metric calculation on validation dataset
+  - [x] Sample every 10th frame to reduce redundancy
+- [x] Implement visualization for detection results
+- [ ] Document training parameters and evaluation process
+- [ ] Optimize model performance and hyperparameters
+- [ ] Explore additional applications (player tracking, tactical analysis)
