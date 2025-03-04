@@ -162,3 +162,11 @@ cython_debug/
 #.idea/
 data/
 .vscode/
+
+# TensorBoard logs
+events.out.tfevents.*
+runs/
+*.tfevents.*
+
+# macOS
+.DS_Store
